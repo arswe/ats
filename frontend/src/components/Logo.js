@@ -1,7 +1,13 @@
-import logo from '../assets/images/logo.svg'
+import logo from '../assets/images/logo.svg';
 
 const Logo = () => {
-  return <img src={logo} alt='jobify' className='logo' />
-}
+  return (
+    <img
+      src={logo}
+      alt='ats'
+      className='logo'
+    />
+  );
+};
 
-export default Logo
+export default Logo;

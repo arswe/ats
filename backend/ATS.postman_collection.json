@@ -1,7 +1,7 @@
 {
   "info": {
     "_postman_id": "76f6c6e1-820c-4eed-bf01-5b96894d9749",
-    "name": "JOBIFY",
+    "name": "ats",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "_exporter_id": "18152321"
   },
@@ -221,7 +221,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"email\":\"john@gmail.com\",\n    \"password\":\"secret\"\n}",
+              "raw": "{\n    \"email\":\"ats@gmail.com\",\n    \"password\":\"secret\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -253,7 +253,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\n    \"name\": \"peter\",\n        \"email\": \"john@gmail.com\",\n        \"lastName\": \"lastName\",\n        \"location\": \"my city\"\n}",
+              "raw": "{\n    \"name\": \"peter\",\n        \"email\": \"ats@gmail.com\",\n        \"lastName\": \"lastName\",\n        \"location\": \"my city\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
