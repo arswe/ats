@@ -1,25 +1,13 @@
-import { useAppContext } from '../context/appContext';
 import { useEffect } from 'react';
-import Loading from './Loading';
-import Job from './Job';
-import Alert from './Alert';
 import Wrapper from '../assets/wrappers/JobsContainer';
+import { useAppContext } from '../context/appContext';
+import Alert from './Alert';
+import Job from './Job';
+import Loading from './Loading';
 import PageBtnContainer from './PageBtnContainer';
 
 const JobsContainer = () => {
-  const {
-    getJobs,
-    jobs,
-    isLoading,
-    page,
-    totalJobs,
-    search,
-    searchStatus,
-    searchType,
-    sort,
-    numOfPages,
-    showAlert,
-  } = useAppContext();
+  const { getJobs, jobs, isLoading, page, totalJobs, search, searchStatus, searchType, sort, numOfPages, showAlert } = useAppContext();
   useEffect(() => {
     getJobs();
     // eslint-disable-next-line
@@ -44,7 +32,12 @@ const JobsContainer = () => {
       </h5>
       <div className='jobs'>
         {jobs.map((job) => {
-          return <Job key={job._id} {...job} />;
+          return (
+            <Job
+              key={job._id}
+              {...job}
+            />
+          );
         })}
       </div>
       {numOfPages > 1 && <PageBtnContainer />}

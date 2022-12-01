@@ -1,7 +1,10 @@
 const FormRow = ({ type, name, value, handleChange, labelText }) => {
   return (
     <div className='form-row'>
-      <label htmlFor={name} className='form-label'>
+      <label
+        htmlFor={name}
+        className='form-label'
+      >
         {labelText || name}
       </label>
       <input
@@ -12,7 +15,7 @@ const FormRow = ({ type, name, value, handleChange, labelText }) => {
         className='form-input'
       />
     </div>
-  )
-}
+  );
+};
 
-export default FormRow
+export default FormRow;

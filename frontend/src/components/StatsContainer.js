@@ -1,10 +1,10 @@
-import { useAppContext } from '../context/appContext'
-import StatItem from './StatItem'
-import { FaSuitcaseRolling, FaCalendarCheck, FaBug } from 'react-icons/fa'
-import Wrapper from '../assets/wrappers/StatsContainer'
+import { FaBug, FaCalendarCheck, FaSuitcaseRolling } from 'react-icons/fa';
+import Wrapper from '../assets/wrappers/StatsContainer';
+import { useAppContext } from '../context/appContext';
+import StatItem from './StatItem';
 
 const StatsContainer = () => {
-  const { stats } = useAppContext()
+  const { stats } = useAppContext();
 
   const defaultStats = [
     {
@@ -28,15 +28,20 @@ const StatsContainer = () => {
       color: '#d66a6a',
       bcg: '#ffeeee',
     },
-  ]
+  ];
 
   return (
     <Wrapper>
       {defaultStats.map((item, index) => {
-        return <StatItem key={index} {...item} />
+        return (
+          <StatItem
+            key={index}
+            {...item}
+          />
+        );
       })}
     </Wrapper>
-  )
-}
+  );
+};
 
-export default StatsContainer
+export default StatsContainer;

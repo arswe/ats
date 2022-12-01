@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react';
-import { Logo, FormRow, Alert } from '../components';
-import Wrapper from '../assets/wrappers/RegisterPage';
-import { useAppContext } from '../context/appContext';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Wrapper from '../assets/wrappers/RegisterPage';
+import { Alert, FormRow, Logo } from '../components';
+import { useAppContext } from '../context/appContext';
 const initialState = {
   name: '',
   email: '',
@@ -13,8 +13,7 @@ const initialState = {
 const Register = () => {
   const navigate = useNavigate();
   const [values, setValues] = useState(initialState);
-  const { user, isLoading, showAlert, displayAlert, setupUser } =
-    useAppContext();
+  const { user, isLoading, showAlert, displayAlert, setupUser } = useAppContext();
 
   const toggleMember = () => {
     setValues({ ...values, isMember: !values.isMember });
@@ -56,7 +55,10 @@ const Register = () => {
 
   return (
     <Wrapper className='full-page'>
-      <form className='form' onSubmit={onSubmit}>
+      <form
+        className='form'
+        onSubmit={onSubmit}
+      >
         <Logo />
         <h3>{values.isMember ? 'Login' : 'Register'}</h3>
         {showAlert && <Alert />}
@@ -84,7 +86,11 @@ const Register = () => {
           value={values.password}
           handleChange={handleChange}
         />
-        <button type='submit' className='btn btn-block' disabled={isLoading}>
+        <button
+          type='submit'
+          className='btn btn-block'
+          disabled={isLoading}
+        >
           submit
         </button>
         <button
@@ -103,7 +109,11 @@ const Register = () => {
         </button>
         <p>
           {values.isMember ? 'Not a member yet?' : 'Already a member?'}
-          <button type='button' onClick={toggleMember} className='member-btn'>
+          <button
+            type='button'
+            onClick={toggleMember}
+            className='member-btn'
+          >
             {values.isMember ? 'Register' : 'Login'}
           </button>
         </p>

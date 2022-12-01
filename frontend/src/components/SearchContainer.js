@@ -1,21 +1,10 @@
+import { useMemo, useState } from 'react';
 import { FormRow, FormRowSelect } from '.';
-import { useAppContext } from '../context/appContext';
 import Wrapper from '../assets/wrappers/SearchContainer';
-import { useState, useMemo } from 'react';
+import { useAppContext } from '../context/appContext';
 const SearchContainer = () => {
   const [localSearch, setLocalSearch] = useState('');
-  const {
-    isLoading,
-    search,
-    searchStatus,
-    searchType,
-    sort,
-    sortOptions,
-    handleChange,
-    clearFilters,
-    jobTypeOptions,
-    statusOptions,
-  } = useAppContext();
+  const { isLoading, searchStatus, searchType, sort, sortOptions, handleChange, clearFilters, jobTypeOptions, statusOptions } = useAppContext();
   const handleSearch = (e) => {
     handleChange({ name: e.target.name, value: e.target.value });
   };

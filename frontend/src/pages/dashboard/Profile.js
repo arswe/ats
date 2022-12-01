@@ -1,28 +1,30 @@
-import { useState } from 'react'
-import { FormRow, Alert } from '../../components'
-import { useAppContext } from '../../context/appContext'
-import Wrapper from '../../assets/wrappers/DashboardFormPage'
+import { useState } from 'react';
+import Wrapper from '../../assets/wrappers/DashboardFormPage';
+import { Alert, FormRow } from '../../components';
+import { useAppContext } from '../../context/appContext';
 const Profile = () => {
-  const { user, showAlert, displayAlert, updateUser, isLoading } =
-    useAppContext()
+  const { user, showAlert, displayAlert, updateUser, isLoading } = useAppContext();
 
-  const [name, setName] = useState(user?.name)
-  const [email, setEmail] = useState(user?.email)
-  const [lastName, setLastName] = useState(user?.lastName)
-  const [location, setLocation] = useState(user?.location)
+  const [name, setName] = useState(user?.name);
+  const [email, setEmail] = useState(user?.email);
+  const [lastName, setLastName] = useState(user?.lastName);
+  const [location, setLocation] = useState(user?.location);
 
   const handleSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     if (!name || !email || !lastName || !location) {
-      displayAlert()
-      return
+      displayAlert();
+      return;
     }
-    updateUser({ name, email, lastName, location })
-  }
+    updateUser({ name, email, lastName, location });
+  };
 
   return (
     <Wrapper>
-      <form className='form' onSubmit={handleSubmit}>
+      <form
+        className='form'
+        onSubmit={handleSubmit}
+      >
         <h3>profile</h3>
         {showAlert && <Alert />}
         <div className='form-center'>
@@ -51,13 +53,17 @@ const Profile = () => {
             value={location}
             handleChange={(e) => setLocation(e.target.value)}
           />
-          <button className='btn btn-block' type='submit' disabled={isLoading}>
+          <button
+            className='btn btn-block'
+            type='submit'
+            disabled={isLoading}
+          >
             {isLoading ? 'Please Wait...' : 'save changes'}
           </button>
         </div>
       </form>
     </Wrapper>
-  )
-}
+  );
+};
 
-export default Profile
+export default Profile;

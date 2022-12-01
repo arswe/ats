@@ -1,6 +1,6 @@
-import { FormRow, FormRowSelect, Alert } from '../../components'
-import { useAppContext } from '../../context/appContext'
-import Wrapper from '../../assets/wrappers/DashboardFormPage'
+import Wrapper from '../../assets/wrappers/DashboardFormPage';
+import { Alert, FormRow, FormRowSelect } from '../../components';
+import { useAppContext } from '../../context/appContext';
 
 const AddJob = () => {
   const {
@@ -19,26 +19,26 @@ const AddJob = () => {
     clearValues,
     createJob,
     editJob,
-  } = useAppContext()
+  } = useAppContext();
 
   const handleSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
     if (!position || !company || !jobLocation) {
-      displayAlert()
-      return
+      displayAlert();
+      return;
     }
     if (isEditing) {
-      editJob()
-      return
+      editJob();
+      return;
     }
-    createJob()
-  }
+    createJob();
+  };
   const handleJobInput = (e) => {
-    const name = e.target.name
-    const value = e.target.value
-    handleChange({ name, value })
-  }
+    const name = e.target.name;
+    const value = e.target.value;
+    handleChange({ name, value });
+  };
 
   return (
     <Wrapper>
@@ -96,8 +96,8 @@ const AddJob = () => {
             <button
               className='btn btn-block clear-btn'
               onClick={(e) => {
-                e.preventDefault()
-                clearValues()
+                e.preventDefault();
+                clearValues();
               }}
             >
               clear
@@ -106,7 +106,7 @@ const AddJob = () => {
         </div>
       </form>
     </Wrapper>
-  )
-}
+  );
+};
 
-export default AddJob
+export default AddJob;
