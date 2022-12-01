@@ -1,19 +1,18 @@
-import express from 'express';
-const app = express();
 import dotenv from 'dotenv';
-dotenv.config();
+import express from 'express';
 import 'express-async-errors';
 import morgan from 'morgan';
+const app = express();
+dotenv.config();
 
-import { dirname } from 'path';
+import path, { dirname } from 'path';
 import { fileURLToPath } from 'url';
-import path from 'path';
 
+import cookieParser from 'cookie-parser';
+import mongoSanitize from 'express-mongo-sanitize';
 import helmet from 'helmet';
 import xss from 'xss-clean';
-import mongoSanitize from 'express-mongo-sanitize';
-import cookieParser from 'cookie-parser';
-// hello
+
 // db and authenticateUser
 import connectDB from './db/connect.js';
 
@@ -22,9 +21,9 @@ import authRouter from './routes/authRoutes.js';
 import jobsRouter from './routes/jobsRoutes.js';
 
 // middleware
-import notFoundMiddleware from './middleware/not-found.js';
-import errorHandlerMiddleware from './middleware/error-handler.js';
 import authenticateUser from './middleware/auth.js';
+import errorHandlerMiddleware from './middleware/error-handler.js';
+import notFoundMiddleware from './middleware/not-found.js';
 
 if (process.env.NODE_ENV !== 'production') {
   app.use(morgan('dev'));
