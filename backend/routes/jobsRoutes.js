@@ -1,13 +1,7 @@
 import express from 'express';
 const router = express.Router();
 
-import {
-  createJob,
-  deleteJob,
-  getAllJobs,
-  updateJob,
-  showStats,
-} from '../controllers/jobsController.js';
+import { createJob, deleteJob, getAllJobs, showStats, updateJob } from '../controllers/jobsController.js';
 
 import testUser from '../middleware/testUser.js';
 

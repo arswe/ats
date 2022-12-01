@@ -1,13 +1,9 @@
-import Job from '../models/Job.js';
 import { StatusCodes } from 'http-status-codes';
-import {
-  BadRequestError,
-  NotFoundError,
-  UnAuthenticatedError,
-} from '../errors/index.js';
-import checkPermissions from '../utils/checkPermissions.js';
-import mongoose from 'mongoose';
 import moment from 'moment';
+import mongoose from 'mongoose';
+import { BadRequestError, NotFoundError } from '../errors/index.js';
+import Job from '../models/Job.js';
+import checkPermissions from '../utils/checkPermissions.js';
 const createJob = async (req, res) => {
   const { position, company } = req.body;
 
@@ -109,10 +105,7 @@ const deleteJob = async (req, res) => {
   res.status(StatusCodes.OK).json({ msg: 'Success! Job removed' });
 };
 const showStats = async (req, res) => {
-  let stats = await Job.aggregate([
-    { $match: { createdBy: mongoose.Types.ObjectId(req.user.userId) } },
-    { $group: { _id: '$status', count: { $sum: 1 } } },
-  ]);
+  let stats = await Job.aggregate([{ $match: { createdBy: mongoose.Types.ObjectId(req.user.userId) } }, { $group: { _id: '$status', count: { $sum: 1 } } }]);
   stats = stats.reduce((acc, curr) => {
     const { _id: title, count } = curr;
     acc[title] = count;

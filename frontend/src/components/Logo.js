@@ -1,13 +1,5 @@
-import logo from '../assets/images/logo.svg';
-
 const Logo = () => {
-  return (
-    <img
-      src={logo}
-      alt='ATS'
-      className='logo'
-    />
-  );
+  return <h4>applicant tracking system</h4>;
 };
 
 export default Logo;
