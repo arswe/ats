@@ -1,5 +1,13 @@
+import logo from '../assets/images/logo.svg';
+
 const Logo = () => {
-  return <h4>applicant tracking system</h4>;
+  return (
+    <img
+      src={logo}
+      alt='ATS'
+      className='logo'
+    />
+  );
 };
 
 export default Logo;
