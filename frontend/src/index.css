@@ -54,7 +54,7 @@ html {
   /* rest of the vars */
   --backgroundColor: var(--grey-50);
   --textColor: var(--grey-900);
-  --borderRadius: 0.25rem;
+  --borderRadius: 0.2rem;
   --letterSpacing: 1px;
   --transition: 0.3s ease-in-out all;
   --max-width: 1120px;
@@ -225,7 +225,7 @@ ul {
   background: var(--white);
   border-radius: var(--borderRadius);
   box-shadow: var(--shadow-2);
-  padding: 2rem 2.5rem;
+  padding: 5rem 2.5rem;
   margin: 3rem auto;
   transition: var(--transition);
 }
@@ -237,7 +237,7 @@ ul {
 .form-label {
   display: block;
   font-size: var(--smallText);
-  margin-bottom: 0.5rem;
+  margin-top: 1rem;
   text-transform: capitalize;
   letter-spacing: var(--letterSpacing);
 }
@@ -249,7 +249,13 @@ ul {
   padding: 0.375rem 0.75rem;
   border-radius: var(--borderRadius);
   background: var(--backgroundColor);
-  border: 1px solid var(--grey-200);
+  border: 0px solid var(--grey-200);
+  box-shadow: var(--shadow-1);
+  transition: var(--transition);
+  font-family: inherit;
+  font-size: var(--smallText);
+  outline: none;
+  border-style: none;
 }
 
 .form-input,
