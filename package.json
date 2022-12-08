@@ -1,7 +1,7 @@
 {
   "name": "ats",
   "version": "1.0.0",
-  "description": "#### Track Your Job Search",
+  "description": "Track Your Job Search",
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -14,7 +14,7 @@
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
   },
   "keywords": [],
-  "author": "",
+  "author": "Abdur Rahman",
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^7.6.0",
