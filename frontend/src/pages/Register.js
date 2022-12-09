@@ -59,7 +59,7 @@ const Register = () => {
                 className='form'
                 onSubmit={onSubmit}
             >
-                <h3>{values.isMember ? 'Login' : 'Register'}</h3>
+                <h3>{values.isMember ? 'Login' : 'Registration'}</h3>
                 {showAlert && <Alert />}
                 {/* name input */}
                 {!values.isMember && (
@@ -92,6 +92,21 @@ const Register = () => {
                 >
                     submit
                 </button>
+
+                {/* <button
+                    type='button'
+                    className='btn btn-block btn-hipster'
+                    disabled={isLoading}
+                    onClick={() => {
+                        setupUser({
+                            currentUser: { email: 'testUser@test.com', password: 'secret' },
+                            endPoint: 'login',
+                            alertText: 'Login Successful! Redirecting...',
+                        });
+                    }}
+                >
+                    {isLoading ? 'loading...' : 'demo Viwes'}
+                </button> */}
 
                 <p>
                     {values.isMember ? 'Not a member yet?' : 'Already a member?'}

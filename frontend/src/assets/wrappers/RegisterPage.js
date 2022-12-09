@@ -11,9 +11,9 @@ const Wrapper = styled.section`
     .form {
         max-width: 400px;
         border-bottom: 5px solid var(--primary-500);
-        border-left: 3px solid var(--primary-500);
+        border-top: 5px solid var(--primary-500);
         border-radius: var(--borderRadius);
-        box-shadow: var(--shadow-2);
+        box-shadow: var(--shadow-4);
     }
 
     h3 {
