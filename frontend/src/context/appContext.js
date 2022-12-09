@@ -108,15 +108,9 @@ const AppProvider = ({ children }) => {
             const { data } = await axios.post(`/api/v1/auth/${endPoint}`, currentUser);
 
             const { user, location } = data;
-            dispatch({
-                type: SETUP_USER_SUCCESS,
-                payload: { user, location, alertText },
-            });
+            dispatch({ type: SETUP_USER_SUCCESS, payload: { user, location, alertText } });
         } catch (error) {
-            dispatch({
-                type: SETUP_USER_ERROR,
-                payload: { msg: error.response.data.msg },
-            });
+            dispatch({ type: SETUP_USER_ERROR, payload: { msg: error.response.data.msg } });
         }
         clearAlert();
     };
@@ -134,16 +128,10 @@ const AppProvider = ({ children }) => {
             const { data } = await authFetch.patch('/auth/updateUser', currentUser);
             const { user, location } = data;
 
-            dispatch({
-                type: UPDATE_USER_SUCCESS,
-                payload: { user, location },
-            });
+            dispatch({ type: UPDATE_USER_SUCCESS, payload: { user, location } });
         } catch (error) {
             if (error.response.status !== 401) {
-                dispatch({
-                    type: UPDATE_USER_ERROR,
-                    payload: { msg: error.response.data.msg },
-                });
+                dispatch({ type: UPDATE_USER_ERROR, payload: { msg: error.response.data.msg } });
             }
         }
         clearAlert();
@@ -159,21 +147,12 @@ const AppProvider = ({ children }) => {
         dispatch({ type: CREATE_JOB_BEGIN });
         try {
             const { position, company, jobLocation, jobType, status } = state;
-            await authFetch.post('/jobs', {
-                position,
-                company,
-                jobLocation,
-                jobType,
-                status,
-            });
+            await authFetch.post('/jobs', { position, company, jobLocation, jobType, status });
             dispatch({ type: CREATE_JOB_SUCCESS });
             dispatch({ type: CLEAR_VALUES });
         } catch (error) {
             if (error.response.status === 401) return;
-            dispatch({
-                type: CREATE_JOB_ERROR,
-                payload: { msg: error.response.data.msg },
-            });
+            dispatch({ type: CREATE_JOB_ERROR, payload: { msg: error.response.data.msg } });
         }
         clearAlert();
     };
@@ -189,14 +168,7 @@ const AppProvider = ({ children }) => {
         try {
             const { data } = await authFetch(url);
             const { jobs, totalJobs, numOfPages } = data;
-            dispatch({
-                type: GET_JOBS_SUCCESS,
-                payload: {
-                    jobs,
-                    totalJobs,
-                    numOfPages,
-                },
-            });
+            dispatch({ type: GET_JOBS_SUCCESS, payload: { jobs, totalJobs, numOfPages } });
         } catch (error) {
             logoutUser();
         }
@@ -211,21 +183,12 @@ const AppProvider = ({ children }) => {
 
         try {
             const { position, company, jobLocation, jobType, status } = state;
-            await authFetch.patch(`/jobs/${state.editJobId}`, {
-                company,
-                position,
-                jobLocation,
-                jobType,
-                status,
-            });
+            await authFetch.patch(`/jobs/${state.editJobId}`, { company, position, jobLocation, jobType, status });
             dispatch({ type: EDIT_JOB_SUCCESS });
             dispatch({ type: CLEAR_VALUES });
         } catch (error) {
             if (error.response.status === 401) return;
-            dispatch({
-                type: EDIT_JOB_ERROR,
-                payload: { msg: error.response.data.msg },
-            });
+            dispatch({ type: EDIT_JOB_ERROR, payload: { msg: error.response.data.msg } });
         }
         clearAlert();
     };
@@ -236,10 +199,7 @@ const AppProvider = ({ children }) => {
             getJobs();
         } catch (error) {
             if (error.response.status === 401) return;
-            dispatch({
-                type: DELETE_JOB_ERROR,
-                payload: { msg: error.response.data.msg },
-            });
+            dispatch({ type: DELETE_JOB_ERROR, payload: { msg: error.response.data.msg } });
         }
         clearAlert();
     };
@@ -247,13 +207,7 @@ const AppProvider = ({ children }) => {
         dispatch({ type: SHOW_STATS_BEGIN });
         try {
             const { data } = await authFetch('/jobs/stats');
-            dispatch({
-                type: SHOW_STATS_SUCCESS,
-                payload: {
-                    stats: data.defaultStats,
-                    monthlyApplications: data.monthlyApplications,
-                },
-            });
+            dispatch({ type: SHOW_STATS_SUCCESS, payload: { stats: data.defaultStats, monthlyApplications: data.monthlyApplications } });
         } catch (error) {
             logoutUser();
         }
@@ -272,10 +226,7 @@ const AppProvider = ({ children }) => {
             const { data } = await authFetch('/auth/getCurrentUser');
             const { user, location } = data;
 
-            dispatch({
-                type: GET_CURRENT_USER_SUCCESS,
-                payload: { user, location },
-            });
+            dispatch({ type: GET_CURRENT_USER_SUCCESS, payload: { user, location } });
         } catch (error) {
             if (error.response.status === 401) return;
             logoutUser();

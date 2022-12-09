@@ -10,7 +10,7 @@ function App() {
                     path='/'
                     element={
                         <ProtectedRoute>
-                            <SharedLayout />
+                            <SharedLayout />{' '}
                         </ProtectedRoute>
                     }
                 >
