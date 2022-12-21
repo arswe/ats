@@ -32,12 +32,7 @@ const JobsContainer = () => {
       </h5>
       <div className='jobs'>
         {jobs.map((job) => {
-          return (
-            <Job
-              key={job._id}
-              {...job}
-            />
-          );
+          return <Job key={job._id} {...job} />;
         })}
       </div>
       {numOfPages > 1 && <PageBtnContainer />}
