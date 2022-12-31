@@ -26,7 +26,7 @@ import errorHandlerMiddleware from './middleware/error-handler.js';
 import notFoundMiddleware from './middleware/not-found.js';
 
 if (process.env.NODE_ENV !== 'production') {
-    app.use(morgan('dev'));
+  app.use(morgan('dev'));
 }
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -45,7 +45,7 @@ app.use('/api/v1/jobs', authenticateUser, jobsRouter);
 
 // only when ready to deploy
 app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, './client/build', 'index.html'));
+  res.sendFile(path.resolve(__dirname, './client/build', 'index.html'));
 });
 
 app.use(notFoundMiddleware);
@@ -54,14 +54,14 @@ app.use(errorHandlerMiddleware);
 const port = process.env.PORT || 5000;
 
 const start = async () => {
-    try {
-        await connectDB(process.env.MONGO_URL);
-        app.listen(port, () => {
-            console.log(`Server is listening on port ${port}...`);
-        });
-    } catch (error) {
-        console.log(error);
-    }
+  try {
+    await connectDB(process.env.MONGO_URL);
+    app.listen(port, () => {
+      console.log(`Server is listening on port ${port}...`);
+    });
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 start();
