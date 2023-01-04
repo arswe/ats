@@ -1,4 +1,4 @@
-## An applicant tracking system (ATS) is software for recruiters and employers to track candidates throughout the recruiting and hiring process.
+### An applicant tracking system (ATS) is software for recruiters and employers to track candidates throughout the recruiting and hiring process.
 
 This project is a simple ATS that allows users to create, read, update, and delete candidates and jobs.
 
@@ -25,3 +25,9 @@ This project was created using the following technologies:
 - Create a database called `ats`
 - Run `npm run start:dev` in the root directory
 - Navigate to `localhost:5000` in your browser
+
+### Author
+
+Abdur Rahman
+
+Email: arwithlpd@gmail.com
