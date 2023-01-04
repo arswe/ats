@@ -4,6 +4,7 @@ import mongoose from 'mongoose';
 import { BadRequestError, NotFoundError } from '../errors/index.js';
 import Job from '../models/Job.js';
 import checkPermissions from '../utils/checkPermissions.js';
+
 const createJob = async (req, res) => {
   const { position, company } = req.body;
 
@@ -54,7 +55,7 @@ const getAllJobs = async (req, res) => {
 
   // setup pagination
   const page = Number(req.query.page) || 1;
-  const limit = Number(req.query.limit) || 10;
+  const limit = Number(req.query.limit) || 12;
   const skip = (page - 1) * limit;
 
   result = result.skip(skip).limit(limit);
